@@ -1,19 +1,23 @@
 package com.jpt.demo.model;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Builder
 public class AuthRequest {
-    @NotBlank(message = "El usuario no puede estar vacío")
+
+    @NotNull(message = "{not.blank}")
+    @NotBlank(message = "{not.blank}")
     private String username;
 
-    @NotBlank(message = "La contraseña no puede estar vacía")
+    @NotNull(message = "{not.blank}")
+    @NotBlank(message = "{not.blank}")
     private String password;
 
-    private String refreshToken;
+    // Por ahora ignoramos el refreshToken
+    // private String refreshToken;
 }
